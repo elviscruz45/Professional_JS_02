@@ -1,0 +1,24 @@
+{
+  "name": "professional_js_02",
+  "version": "1.0.0",
+  "description": "Professional course JS review_02",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elviscruz45/Professional_JS_02.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elviscruz45/Professional_JS_02/issues"
+  },
+  "homepage": "https://github.com/elviscruz45/Professional_JS_02#readme",
+  "devDependencies": {
+    "live-server": "^1.1.0"
+  }
+}
