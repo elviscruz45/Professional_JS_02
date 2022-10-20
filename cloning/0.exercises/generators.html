@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Generators</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+
+      function* simpleGenerator(){
+        console.log("GENERATOR START")
+        console.log(" GENERATOR END")
+        
+      }
+
+      function* Fibonnaci(){
+        let a=1
+        let b=1
+        yield a
+        yield b
+
+        while(true){
+            const c=a+b
+            a=b
+            b=c
+          yield c
+
+
+        }
+      }
+      
+      gen=Fibonnaci()
+
+
+    </script>
+  </body>
+</html>
