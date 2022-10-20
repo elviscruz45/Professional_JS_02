@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Scope</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+    <script>
+      //Global scope
+      var message="Hello, platzi"
+      var $=function(message){
+        console.log("say: "+message)
+      }
+
+      //function scope 01
+      function printNumbers(){
+        console.log(i+"holas")
+
+        for(var i=0;i<10;i++){
+          setTimeout(function (){(console.log(i))},100)
+        }
+        console.log(i+"chau")
+
+      }
+      printNumbers()
+
+      //function scope 02
+      function printNumbers_2(){
+        for (let i=0;i<10;i++){
+
+          function eventually(i){
+            setTimeout(function(){
+              console.log(i)
+            },100)
+          }
+          eventually(i)
+        }
+      }
+      printNumbers_2()
+      //block scope
+      function printNumbers_3(){
+        for(let i=0;i<10;i++){
+          setTimeout(function(){
+
+            console.log(i)
+          },100)
+          console.log("hola")
+        }
+      }
+      
+      printNumbers_3()
+
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>
+      Function.prototype.call, Function.prototype.apply, Function.prototype.bind
+    </title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <ul>
+      <li><button class="call-to-action">Aprender</button></li>
+      <li><button class="call-to-action">Aprender Más</button></li>
+      <li><button class="call-to-action">¡Nunca parar de Aprender!</button></li>
+    </ul>
+
+    <script>
+      console.log("----------------Set This using Call--------------------")
+      function saludar(){
+        console.log(`HOla. soy ${this.name} ${this.apellido}`)
+      }
+
+      const elvis={
+        name:"Elvis",
+        apellido: "Cruz"
+      }
+
+      saludar.call(elvis)
+
+
+      console.log("----------------Set This using Call with arguments--------------------")
+
+
+      function caminar(metros,direccion){
+        console.log(`${this.name} ${metros} ${direccion}`)
+      }
+      caminar.call(elvis,400,"norte")
+      console.log("-------Set This using apply----------------------------")
+
+      const valores=["noreste",800]
+      caminar.apply(elvis,valores)
+
+      console.log("-------Set This using bind-----------------------------")
+
+      const daniel={name:"Daniel",apellido:"Cruz"}
+      const danielSaluda=saludar.bind(daniel)
+      danielSaluda();
+
+      const danielCamina=caminar.bind(daniel,"oeste")
+      danielCamina("200")
+
+      console.log("-------Set Node List------------------------------------")
+      const buttons=document.getElementsByClassName("call-to-action")
+
+      Array.prototype.forEach.call(buttons,button=>{
+        button.onclick=()=>console.log("nunca pares de aprender!")
+      })
+      console.log(buttons)
+
+      console.log("-------Review------------------------------------")
+
+      let text=""
+      const fruit=["apple","orange","cherry"]
+      fruit.forEach(MyFunction)
+      function MyFunction(a,b,c,d){
+        text+=a+"/ "+b+"/ "+c+"/ "+d+"||"
+      }
+
+    </script>
+  </body>
+</html>

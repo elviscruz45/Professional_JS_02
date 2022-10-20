@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Closures</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      //Closures
+      //Print Color
+      // IIFE
+      (function color(){
+        let color="green"
+        function printcolor(){
+          console.log(color+" como estas")
+        }
+        printcolor()
+      })()
+//----------------------------------------------------------------
+      //Functions return functions
+
+      function makeColorPrinter(color){
+        let colorMessage=`The color is ${color}`
+        return function (){
+          console.log(colorMessage)
+        }
+      }
+      let greenColorPrinter=makeColorPrinter("green")
+      greenColorPrinter()
+//----------------------------------------------------------------
+      console.log("------------Variables privadas----------------")
+      //variables privadas
+      const counter={
+        count:3
+      }
+      console.log(counter.count)
+      counter.count=99
+      console.log(counter.count)
+
+
+//----------------------------------------------------------------
+console.log("FUnciones privadas")
+console.log("------------Funciones privadas----------------")
+
+      function makeCounter(n){
+        let counter2=n
+        return({
+          increase:function(){counter2++},
+          decrease:function(){counter2--},
+          getCount:function(){return counter2},
+        })
+      }
+      let counter_2=makeCounter(10)
+      counter_2.increase()
+      console.log(counter_2.getCount())
+
+
+    </script>
+
+    <div>
+
+    </div>
+  </body>
+</html>

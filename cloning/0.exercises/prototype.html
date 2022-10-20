@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Prototype</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      console.log("---------------Un objeto comun y corriente-----------")
+
+      const zelda={
+        name:"zelda",
+      }
+
+      zelda.saludar=function(){
+        console.log(`Hola soy ${this.name}`)
+      }
+      zelda.saludar()
+
+      console.log("---------------Been Efficient-----------")
+
+      function Hero(name){
+        const hero={
+          name:name
+        }
+        hero.saludar=function(){
+          console.log(`hola soy ${this.name}`)
+        }
+        return hero
+      }
+      const zeldas=Hero("superman")
+      const link=Hero("chita")
+      zeldas.saludar()
+      link.saludar()
+
+      console.log("---------------Been Efficient-----------")
+      
+      const heroMethods2 = {
+         saludar: function() {
+           console.log(`Me llamo ${this.name}`);
+         },
+     };
+
+       function Hero2(name) {
+         const hero = {
+           name: name,
+         };
+         hero.saludar = heroMethods2.saludar;
+         return hero;
+       }
+
+       const zelda2 = Hero('Zelda');
+       zelda2.saludar();
+
+       const link2 = Hero('Link');
+       link2.saludar();
+
+console.log("--------------creating a new object------------")
+      
+      const heroMethods3={
+        greet:function(){
+          console.log(`I am ${this.name}`)
+        }
+      }
+
+      function Hero3(name){
+        const hero=Object.create(heroMethods3)
+        hero.name=name
+        return hero
+       }
+       const zelda3 = Hero3('Zeldass');
+       zelda3.greet();
+
+       const link3 = Hero3('Linkss');
+       link3.greet()
+
+console.log("--------------creating prototype------------")
+
+function Hero5(name){
+  const hero=Object.create(Hero5.prototype)
+  hero.name=name
+  return hero
+}
+Hero5.prototype.greet=function (){
+  console.log(`soy superheroina! ${this.name} `)
+}
+const zelda5=Hero5("zelda5")
+zelda5.greet()
+
+console.log("--------------Using new as a shotcut------------")
+
+function Hero6(name){
+  this.name=name
+}
+
+Hero6.prototype.greet=function(){
+  console.log(`New ${this.name}`)
+}
+
+const zelda6=new Hero6("zeldani")
+zelda6.greet()
+
+    </script>
+  </body>
+</html>
