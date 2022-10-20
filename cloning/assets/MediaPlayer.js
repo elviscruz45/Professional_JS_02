@@ -23,7 +23,6 @@ MediaPlayer.prototype._initPlugins=function(){
     });
 }
 
-
 MediaPlayer.prototype.play = function() {
 this.media.play();
 };
