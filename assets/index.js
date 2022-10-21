@@ -16,7 +16,7 @@ const buttonMute=document.querySelector("#mute")
 buttonMute.onclick=()=>player.toggleMute()
 
 if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("/cloning/sw.js").catch(error=>{
+  navigator.serviceWorker.register("/sw.js").catch(error=>{
     console.log(error.message)
   })
 }
