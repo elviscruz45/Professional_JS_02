@@ -1,25 +1,23 @@
-function MediaPlayer(config) {
-    this.media = config.el;
-  }
-  
-  MediaPlayer.prototype.play = function() {
-    this.media.play();
-  };
-  
-  MediaPlayer.prototype.pause = function() {
-    this.media.pause();
-  };
-  
-  MediaPlayer.prototype.togglePlay = function() {
-    if (this.media.paused) {
-      this.play();
-    } else {
-      this.pause();
-    }
-  };
-  
-  const video = document.querySelector('video');
-  const player = new MediaPlayer({ el: video });
-  
-  const button = document.querySelector('button');
-  button.onclick = () => player.togglePlay();
+import MediaPlayer from "./MediaPlayer.js"
+import AutoPlay from "./plugins/AutoPlay.js"
+import {AutoPause} from "./plugins/AutoPause.js"
+
+const video = document.querySelector('video');
+const player = new MediaPlayer({ 
+  el: video,plugins:[
+  new AutoPlay(),
+  new AutoPause()
+] });
+
+const button = document.querySelector('#play');
+button.onclick = () => player.togglePlay();
+
+const buttonMute=document.querySelector("#mute")
+buttonMute.onclick=()=>player.toggleMute()
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("/cloning/sw.js").catch(error=>{
+    console.log(error.message)
+  })
+}
+

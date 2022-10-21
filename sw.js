@@ -22,14 +22,14 @@ self.addEventListener("fetch",event=>{
 async function precache(){
 const cache= await caches.open("VERSION")
 return cache.addAll([
-    "/cloning/",
-    "/cloning/index.html",
-    "/cloning/assets/index.js",
-    "/cloning/assets/MediaPlayer.js",
-    "/cloning/assets/plugins/AutoPlay.js",
-    "/cloning/assets/plugins/AutoPause.js",
-    "/cloning/assets/index.css",
-    "/cloning/assets/sintel-short.mp4",
+    "/",
+    "/index.html",
+    "/assets/index.js",
+    "/assets/MediaPlayer.js",
+    "/assets/plugins/AutoPlay.js",
+    "/assets/plugins/AutoPause.js",
+    "/assets/index.css",
+    "/assets/sintel-short.mp4",
 ])
 }
 
