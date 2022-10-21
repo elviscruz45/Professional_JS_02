@@ -1,6 +1,6 @@
-import MediaPlayer from "./MediaPlayer.js"
-import AutoPlay from "./plugins/AutoPlay.js"
-import {AutoPause} from "./plugins/AutoPause.js"
+import MediaPlayer from "./MediaPlayer"
+import AutoPlay from "./plugins/AutoPlay"
+import {AutoPause} from "./plugins/AutoPause"
 
 const video = document.querySelector('video');
 const player = new MediaPlayer({ 
@@ -9,10 +9,10 @@ const player = new MediaPlayer({
   new AutoPause()
 ] });
 
-const button = document.querySelector('#play');
+const button:HTMLElement = document.querySelector('#play') as HTMLElement;
 button.onclick = () => player.togglePlay();
 
-const buttonMute=document.querySelector("#mute")
+const buttonMute:HTMLElement=document.querySelector("#mute") as HTMLElement
 buttonMute.onclick=()=>player.toggleMute()
 
 if("serviceWorker" in navigator){
